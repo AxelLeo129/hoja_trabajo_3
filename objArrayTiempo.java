@@ -4,7 +4,7 @@ public class objArrayTiempo {
     private ArrayList<Integer> listaOrdenada; 
     private String tiempo;
     private String titulo;  
-    public objArrayTiempo(ArrayList<Integer> listaOrdenada, String tiempo, ){
+    public objArrayTiempo(ArrayList<Integer> listaOrdenada, String tiempo){
         this.tiempo=tiempo; 
         this.listaOrdenada=listaOrdenada;         
     }
