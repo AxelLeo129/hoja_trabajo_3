@@ -2,8 +2,9 @@ import java.util.ArrayList;
 
 public class objArrayTiempo {
     private ArrayList<Integer> listaOrdenada; 
-    private String tiempo; 
-    public objArrayTiempo(ArrayList<Integer> listaOrdenada, String tiempo){
+    private String tiempo;
+    private String titulo;  
+    public objArrayTiempo(ArrayList<Integer> listaOrdenada, String tiempo, ){
         this.tiempo=tiempo; 
         this.listaOrdenada=listaOrdenada;         
     }
@@ -22,6 +23,14 @@ public class objArrayTiempo {
 
     public void setTiempo(String tiempo) {
         this.tiempo = tiempo;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
     
 }
