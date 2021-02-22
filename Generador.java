@@ -16,7 +16,7 @@ public class Generador {
         numero_maximo = 2999;
     }
 
-    public void random() {
+    public void randomNumbers() {
         ArrayList<Integer> numeros = new ArrayList<>();
         String cadena = "";
         for(int i = 0; i < 3000; i++) {
@@ -25,10 +25,10 @@ public class Generador {
         for(Integer num: numeros) {
             cadena = cadena + num.toString() + " ";
         }
-        this.write(cadena);
+        this.writeFile(cadena);
     }
 
-    public String write(String cadena) {
+    public void writeFile(String cadena) {
         try {
             File archivo = new File("datos.txt");
             archivo.createNewFile();
@@ -37,12 +37,9 @@ public class Generador {
             buffer.write(cadena);
             buffer.flush();
             buffer.close();
-            FileReader fr = new FileReader(archivo);
-            BufferedReader br = new BufferedReader(fr);
         } catch (Exception e) {
-            return e.toString();
+            System.out.println(e.toString());
         }
-        return "";
     }
 
     public String readFile() {
