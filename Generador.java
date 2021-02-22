@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class Generador {
     
-    Random rand;
-    int numero_maximo;
+    private Random rand;
+    private int numero_maximo;
 
     public Generador() {
         rand = new Random();
