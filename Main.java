@@ -7,7 +7,7 @@ public class Main {
         //Generador generador = new Generador();
         //System.out.println(generador.readFile());
         Scanner teclado = new Scanner(System.in);
-        Ordenador ord = new Ordenador(); 
+        Ordenador ord = new Ordenador("a"); 
         ArrayList<Integer> lista = new ArrayList<Integer>();
         lista.add(10);
         lista.add(27);
@@ -23,9 +23,9 @@ public class Main {
             System.out.println("Elija una opcion \n 1. Ordenar \n 2. Ver lista ordenada\n 3. Salir");
             int res = teclado.nextInt();
             if(res==1){
-                System.out.println(ord.gnomeSort(lista, 9));
+                System.out.println(ord.quickSort(lista, 9));
             }else if(res==2){
-                System.out.println(ord.mostrarListaOrdenada(0));
+                //System.out.println(ord.mostrarListaOrdenada(0));
             }else if (res==3){
                 break; 
             }else{
@@ -33,4 +33,5 @@ public class Main {
                     }
         
     }
+}
 }
