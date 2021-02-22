@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Ordenador implements Comparable {
+public class Ordenador {
 
     private String[] lista_numeros;
     private ArrayList < objArrayTiempo > listaDePruebas = new ArrayList < objArrayTiempo > ();
@@ -113,17 +113,6 @@ public class Ordenador implements Comparable {
         }
         if (res == "") res = "Parece que aun no has realizado ninguna prueba de ordenamiento";
         return res;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-    
-    public static int comparador(int mayor, int menor) {
-        if (mayor > menor) return 1;
-        else return 0;
     }
 
 }
