@@ -27,9 +27,9 @@ public class Ordenador {
             for (int i = 0; i <= elementosAOrdenar; i++)
                 listaAOrdenar.add(lista.get(i));
             long TInicio, TFin, tiempo;
+            ArrayList<Integer> resultado = new ArrayList<>();
             TInicio = System.nanoTime();
             // Incia algoritmo de ordenamiento
-            ArrayList<Integer> resultado = new ArrayList<>();
             String nombre = "";
             if(sort == 1) {
                 nombre = "Gnome";
@@ -39,7 +39,7 @@ public class Ordenador {
                 resultado = mergeSort(listaAOrdenar);
             } else if(sort == 3) {
                 nombre = "Quick";
-                //resultado = quickSort(listaAOrdenar, 0, listaAOrdenar.size() - 1); 
+                resultado = quickSort(listaAOrdenar, 0, listaAOrdenar.size() - 1);
             } else  if(sort == 4) {
                 nombre = "Radix";
                 resultado = radixSort(listaAOrdenar);
@@ -50,7 +50,7 @@ public class Ordenador {
             objArrayTiempo arrayTiempo = new objArrayTiempo(resultado, String.valueOf(tiempo));
             listaDePruebas.add(arrayTiempo);
             String titulo = "Sort " + String.valueOf(listaDePruebas.indexOf(arrayTiempo) + 1) + " (index):" + nombre + " (" +
-                elementosAOrdenar + " elementos). Resultado: " + arrayTiempo.getTiempo() + " milisegundos";
+                elementosAOrdenar + " elementos). Resultado: " + arrayTiempo.getTiempo() + " nanosegundos";
             arrayTiempo.setTitulo(titulo);
             return nombre + "Sort, Ejecutado exitosamente";
         } else
@@ -173,6 +173,8 @@ public class Ordenador {
         }
         return lista;
     }
+
+
 
     public String verPruebas() {
         String res = "";

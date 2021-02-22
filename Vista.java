@@ -14,7 +14,7 @@ public class Vista {
                 /*
                 * Presentamos el menú        
                 */
-                System.out.println("1.Generar un archivo con número aleatorios.\n2.Leer y ordenar los datos del archivo existente.\n3.Salir");  
+                System.out.println("1.Generar un archivo con número aleatorios.\n2.Leer y ordenar los datos del archivo existente.\n3.Salir\nSeleccione: ");  
                     try {
                         /*
                         * Opetenemos la opción.
@@ -34,8 +34,25 @@ public class Vista {
             } else if(opcion == 2) {
                 Generador generador = new Generador();
                 Ordenador ordenador = new Ordenador(generador.readFile());
+                boolean validar_opcion1 = false;
+                int opcion1 = 0;
+                while(validar_opcion1 == false) {
+                    System.out.println("Seleccione la cantidad de números a ordenar, \nNota: Debe ser un número entre 2 y 2999 : ");  
+                    try {
+                        /*
+                        * Opetenemos la opción.
+                        */
+                        opcion1 = Integer.parseInt(sc.next());
+                        if(opcion1 < 3000 && opcion1 > 1)
+                            validar_opcion1 = true;
+                        else
+                            System.out.println("Ingrese una opción válida\n");
+                    } catch(Exception e) {
+                        System.out.println("Ingrese un número válido\n");
+                    }
+                }
                 for(int i = 1; i < 5; i++) {
-                    System.out.println(ordenador.getTime(ordenador.getLista_numeros(), 2999, i));
+                    System.out.println(ordenador.getTime(ordenador.getLista_numeros(), opcion1, i));
                 }
                 System.out.println(ordenador.verPruebas());
             } else if(opcion == 3) {
