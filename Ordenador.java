@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Ordenador implements Comparable {
+public class Ordenador  {
 
     private String[] lista_numeros;
     private ArrayList < objArrayTiempo > listaDePruebas = new ArrayList < objArrayTiempo > ();
@@ -14,7 +14,7 @@ public class Ordenador implements Comparable {
     Y la cantidad de elementos que desea ordenar de esa lista 
     */
     public String gnomeSort(ArrayList < Integer > lista, int elementosAOrdenar) {
-        if (elementosAOrdenar >= 3000) {
+        if (elementosAOrdenar <= 3000) {
             ArrayList < Integer > listaAOrdenar = new ArrayList < Integer > ();
             for (int i = 0; i <= elementosAOrdenar; i++) listaAOrdenar.add(lista.get(i));
             long TInicio, TFin, tiempo;
@@ -115,15 +115,5 @@ public class Ordenador implements Comparable {
         return res;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-    
-    public static int comparador(int mayor, int menor) {
-        if (mayor > menor) return 1;
-        else return 0;
-    }
 
 }
