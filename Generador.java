@@ -25,7 +25,7 @@ public class Generador {
         for(Integer num: numeros) {
             cadena = cadena + num.toString() + " ";
         }
-        this.writeFile(cadena);
+        writeFile(cadena);
     }
 
     public void writeFile(String cadena) {

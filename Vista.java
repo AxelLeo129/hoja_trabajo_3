@@ -7,8 +7,8 @@ public class Vista {
     public void execute() {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
-        System.out.println("Bienvenido al sistema de ordenamiento\nElige una opción");
-        while(opcion != 1) {
+        System.out.println("Bienvenido al sistema de ordenamiento\nElige una opción:");
+        while(opcion != 3) {
             boolean validar_opcion = false;
             while(validar_opcion == false) {
                 /*
@@ -28,17 +28,24 @@ public class Vista {
                         System.out.println("Ingrese un número válido\n");
                     }
             }
-        }
-
-        if(opcion == 1) {
-        
-        } else  if(opcion == 3) {
-            /*
-                * Salimos del sistema
-                */
-                System.out.println("Gracias, vuelva pronto.");
-                System.out.println("-----------------------------------------------------------------");
-                System.exit(0);
+            if(opcion == 1) {
+                Generador generador = new Generador();
+                generador.randomNumbers();
+            } else if(opcion == 2) {
+                Generador generador = new Generador();
+                Ordenador ordenador = new Ordenador(generador.readFile());
+                for(int i = 1; i < 5; i++) {
+                    System.out.println(ordenador.getTime(ordenador.getLista_numeros(), 2999, i));
+                }
+                System.out.println(ordenador.verPruebas());
+            } else if(opcion == 3) {
+                /*
+                    * Salimos del sistema
+                    */
+                    System.out.println("Gracias, vuelva pronto.");
+                    System.out.println("-----------------------------------------------------------------");
+                    System.exit(0);
+            }
         }
     }
 
