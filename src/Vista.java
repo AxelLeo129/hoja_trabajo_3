@@ -1,9 +1,27 @@
+package src;
+
+/**
+* 
+* @author Luis Pedro & Axel 
+* @version 1.0
+**/
+
 import java.util.Scanner;
 
 public class Vista {
 
+    /**
+     * 
+     * Constructor 
+     *  
+     **/
     public Vista() { }
 
+    /**
+     * 
+     * Metodo para ejecurar la vista. 
+     *  
+     **/
     public void execute() {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
@@ -51,7 +69,7 @@ public class Vista {
                         System.out.println("Ingrese un número válido\n");
                     }
                 }
-                for(int i = 1; i < 5; i++) {
+                for(int i = 1; i < 6; i++) {
                     System.out.println(ordenador.getTime(ordenador.getLista_numeros(), opcion1, i));
                 }
                 System.out.println(ordenador.verPruebas());

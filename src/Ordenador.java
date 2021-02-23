@@ -1,10 +1,28 @@
+package src;
+
+/**
+ * 
+ * @author Luis Pedro & Axel 
+ * @version 1.0
+ **/
+
 import java.util.ArrayList;
 
 public class Ordenador {
 
+    /**
+     * 
+     * Atributos
+     *
+     **/
     private ArrayList < Integer > lista_numeros;
     private ArrayList < objArrayTiempo > listaDePruebas = new ArrayList < objArrayTiempo > ();
 
+    /**
+     * 
+     * Contructor
+     * @params String cadena
+     **/
     public Ordenador(String cadena) {
         lista_numeros = new ArrayList < > ();
         String[] lista_string = cadena.split(" ");
@@ -13,36 +31,47 @@ public class Ordenador {
         }
     }
 
+    /**
+     * 
+     * Retorna la lista de números
+     * @return ArrayList<Intege> lista_numeros
+     **/
     public ArrayList < Integer > getLista_numeros() {
         return this.lista_numeros;
     }
 
-    /*
+    /**
+     * 
      * Ingres la lista de 3000 elementos Y la cantidad de elementos que desea
      * ordenar de esa lista
-     */
+     * @params ArrayList < Integer > lista, int elementosAOrdenar, int sort
+     * @return mensaje con el estado del resultado
+     **/
     public String getTime(ArrayList < Integer > lista, int elementosAOrdenar, int sort) {
         if (elementosAOrdenar <= 3000) {
             ArrayList < Integer > listaAOrdenar = new ArrayList < Integer > ();
             for (int i = 0; i <= elementosAOrdenar; i++)
                 listaAOrdenar.add(lista.get(i));
             long TInicio, TFin, tiempo;
-            ArrayList<Integer> resultado = new ArrayList<>();
+            ArrayList < Integer > resultado = new ArrayList < > ();
             TInicio = System.nanoTime();
             // Incia algoritmo de ordenamiento
             String nombre = "";
-            if(sort == 1) {
+            if (sort == 1) {
                 nombre = "Gnome";
                 resultado = gnomeSort(listaAOrdenar, elementosAOrdenar);
-            } else if(sort == 2) {
+            } else if (sort == 2) {
                 nombre = "Merge";
                 resultado = mergeSort(listaAOrdenar);
-            } else if(sort == 3) {
+            } else if (sort == 3) {
                 nombre = "Quick";
                 resultado = quickSort(listaAOrdenar, 0, listaAOrdenar.size() - 1);
-            } else  if(sort == 4) {
+            } else if (sort == 4) {
                 nombre = "Radix";
                 resultado = radixSort(listaAOrdenar);
+            } else if(sort == 5) {
+                nombre = "Selection";
+                resultado = selectionSort(listaAOrdenar);
             }
             // Termina algoritmo de ordenamiento
             TFin = System.nanoTime();
@@ -58,6 +87,12 @@ public class Ordenador {
     }
 
 
+    /**
+     * 
+     * Ordenamiento tipo Gnome
+     * @params ArrayList < Integer > lista, int elementosAOrdenar
+     * @return ArrayList < Integer > lista
+     **/
     public ArrayList < Integer > gnomeSort(ArrayList < Integer > lista, int elementosAOrdenar) {
         int index = 0;
         while (index < lista.size()) {
@@ -76,6 +111,12 @@ public class Ordenador {
         return lista;
     }
 
+    /**
+     * 
+     * Ordenamiento tipo Merge
+     * @params ArrayList < Integer > lista
+     * @return ArrayList < Integer > lista
+     **/
     public ArrayList < Integer > mergeSort(ArrayList < Integer > lista) {
         if (lista.size() <= 1) {
             return lista;
@@ -96,6 +137,12 @@ public class Ordenador {
         return resultado;
     }
 
+    /**
+     * 
+     * Unión de dos arreglos
+     * @params ArrayList < Integer > sinistra, ArrayList < Integer > dietro
+     * @return ArrayList < Integer > resultado
+     **/
     public ArrayList < Integer > merge(ArrayList < Integer > sinistra, ArrayList < Integer > dietro) {
         ArrayList < Integer > resultado = new ArrayList < > ();
         int sinistro_puntatore, dietro_puntatore;
@@ -119,8 +166,8 @@ public class Ordenador {
     /**
      * Obtenido de
      * https://issuu.com/josedarwinchacantamame/docs/algoritmo_de_ordenamiento_java
-     * Autor: Jose Darwin Chacan
-     */
+     * @author Jose Darwin Chacan
+     **/
     public ArrayList < Integer > quickSort(ArrayList < Integer > listaAOrdenar, int primero, int ultimo) {
         int i, j, central;
         double pivote;
@@ -150,6 +197,12 @@ public class Ordenador {
         return listaAOrdenar;
     }
 
+    /**
+     * 
+     * Ordenamiento tipo Merge
+     * @params ArrayList < Integer > lista
+     * @return ArrayList < Integer > lista
+     **/
     private ArrayList < Integer > radixSort(ArrayList < Integer > lista) {
         int x, i, j;
         for (x = Integer.SIZE - 1; x >= 0; x--) {
@@ -174,8 +227,34 @@ public class Ordenador {
         return lista;
     }
 
+    /**
+     * 
+     * Ordenamiento tipo Selection
+     * @params ArrayList < Integer > lista
+     * @return ArrayList < Integer > lista
+     **/
+    private ArrayList < Integer > selectionSort(ArrayList < Integer > lista) {
+        int n = lista.size();
+        for (int i = 0; i < n - 1; i++) {
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (lista.get(j) < lista.get(min_idx))
+                    min_idx = j;
+            }
+
+            int temp = lista.get(min_idx);
+            lista.set(min_idx, lista.get(i));
+            lista.set(i, temp);
+        }
+        return lista;
+    }
 
 
+    /**
+     * 
+     * Ordenamiento tipo Merge
+     * @return 
+     **/
     public String verPruebas() {
         String res = "";
         for (objArrayTiempo r: listaDePruebas) {
