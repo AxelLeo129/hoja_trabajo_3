@@ -205,7 +205,7 @@ public class Ordenador {
      * @param lista
      * @return lista
      **/
-    private ArrayList < Integer > radixSort(ArrayList < Integer > lista) {
+    public ArrayList < Integer > radixSort(ArrayList < Integer > lista) {
         int x, i, j;
         for (x = Integer.SIZE - 1; x >= 0; x--) {
             ArrayList < Integer > aiuto = new ArrayList < > ();
@@ -235,7 +235,7 @@ public class Ordenador {
      * @param lista
      * @return lista
      **/
-    private ArrayList < Integer > selectionSort(ArrayList < Integer > lista) {
+    public ArrayList < Integer > selectionSort(ArrayList < Integer > lista) {
         int n = lista.size();
         for (int i = 0; i < n - 1; i++) {
             int min_idx = i;
