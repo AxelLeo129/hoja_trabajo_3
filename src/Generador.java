@@ -11,7 +11,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -55,7 +54,7 @@ public class Generador {
     /**
      * 
      * Genera un archivo con los datos enviados.
-     * @params String cadena 
+     * @param cadena numeros aleatorios
      *  
      **/
     public void writeFile(String cadena) {
@@ -75,7 +74,7 @@ public class Generador {
     /**
      * 
      * Retorna los datos que se almacenan en el documento.
-     * @params String linea 
+     * @return linea 
      *  
      **/
     public String readFile() {
