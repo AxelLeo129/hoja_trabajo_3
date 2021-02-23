@@ -1,5 +1,4 @@
 package src;
-
 /**
  * 
  * @author Luis Pedro & Axel 
@@ -21,7 +20,7 @@ public class Ordenador {
     /**
      * 
      * Contructor
-     * @params String cadena
+     * @param cadena
      **/
     public Ordenador(String cadena) {
         lista_numeros = new ArrayList < > ();
@@ -34,7 +33,7 @@ public class Ordenador {
     /**
      * 
      * Retorna la lista de números
-     * @return ArrayList<Intege> lista_numeros
+     * @return lista_numeros lista de números
      **/
     public ArrayList < Integer > getLista_numeros() {
         return this.lista_numeros;
@@ -44,7 +43,9 @@ public class Ordenador {
      * 
      * Ingres la lista de 3000 elementos Y la cantidad de elementos que desea
      * ordenar de esa lista
-     * @params ArrayList < Integer > lista, int elementosAOrdenar, int sort
+     * @param lista, lista a ordenar
+     * @param elementosAOrdenar cantidad de elementos a ordenar
+     * @param sort tipo de sort
      * @return mensaje con el estado del resultado
      **/
     public String getTime(ArrayList < Integer > lista, int elementosAOrdenar, int sort) {
@@ -69,7 +70,7 @@ public class Ordenador {
             } else if (sort == 4) {
                 nombre = "Radix";
                 resultado = radixSort(listaAOrdenar);
-            } else if(sort == 5) {
+            } else if (sort == 5) {
                 nombre = "Selection";
                 resultado = selectionSort(listaAOrdenar);
             }
@@ -90,8 +91,9 @@ public class Ordenador {
     /**
      * 
      * Ordenamiento tipo Gnome
-     * @params ArrayList < Integer > lista, int elementosAOrdenar
-     * @return ArrayList < Integer > lista
+     * @param lista, elementosAOrdenar
+     * @param elementosAOrdenar cantidad de elememtos a ordenar
+     * @return lista lista elementos a ordenar
      **/
     public ArrayList < Integer > gnomeSort(ArrayList < Integer > lista, int elementosAOrdenar) {
         int index = 0;
@@ -114,8 +116,8 @@ public class Ordenador {
     /**
      * 
      * Ordenamiento tipo Merge
-     * @params ArrayList < Integer > lista
-     * @return ArrayList < Integer > lista
+     * @param lista lista de elementos a ordenar
+     * @return lista lista ordenada
      **/
     public ArrayList < Integer > mergeSort(ArrayList < Integer > lista) {
         if (lista.size() <= 1) {
@@ -140,8 +142,8 @@ public class Ordenador {
     /**
      * 
      * Unión de dos arreglos
-     * @params ArrayList < Integer > sinistra, ArrayList < Integer > dietro
-     * @return ArrayList < Integer > resultado
+     * @param sinistra, dietro
+     * @return resultado
      **/
     public ArrayList < Integer > merge(ArrayList < Integer > sinistra, ArrayList < Integer > dietro) {
         ArrayList < Integer > resultado = new ArrayList < > ();
@@ -200,8 +202,8 @@ public class Ordenador {
     /**
      * 
      * Ordenamiento tipo Merge
-     * @params ArrayList < Integer > lista
-     * @return ArrayList < Integer > lista
+     * @param lista
+     * @return lista
      **/
     private ArrayList < Integer > radixSort(ArrayList < Integer > lista) {
         int x, i, j;
@@ -230,8 +232,8 @@ public class Ordenador {
     /**
      * 
      * Ordenamiento tipo Selection
-     * @params ArrayList < Integer > lista
-     * @return ArrayList < Integer > lista
+     * @param lista
+     * @return lista
      **/
     private ArrayList < Integer > selectionSort(ArrayList < Integer > lista) {
         int n = lista.size();
@@ -253,7 +255,7 @@ public class Ordenador {
     /**
      * 
      * Ordenamiento tipo Merge
-     * @return 
+     * @return res
      **/
     public String verPruebas() {
         String res = "";
